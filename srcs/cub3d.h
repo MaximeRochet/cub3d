@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:30:41 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/19 13:45:28 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/19 13:45:44 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "./utils/libft.h"
+# include "../utils/libft.h"
 
 typedef struct	s_res
 {

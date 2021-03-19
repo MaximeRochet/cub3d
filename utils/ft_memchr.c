@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmasse <cmasse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 12:56:37 by cmasse            #+#    #+#             */
-/*   Updated: 2021/03/10 16:16:55 by mrochet          ###   ########lyon.fr   */
+/*   Created: 2020/11/23 18:10:34 by cmasse            #+#    #+#             */
+/*   Updated: 2020/12/01 16:34:36 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*s1_temp;
-	unsigned char	*s2_temp;
+	unsigned char	*n_s;
 
-	s1_temp = (unsigned char *)s1;
-	s2_temp = (unsigned char *)s2;
+	n_s = (unsigned char *)s;
 	i = 0;
+	if (n == 0)
+		return (NULL);
+	if (!c)
+		return ((void *)s + ft_strlen(s));
 	while (i < n)
 	{
-		if (s1_temp[i] != s2_temp[i] || s1_temp[i] == '\0')
-			return (s1_temp[i] - s2_temp[i]);
+		if (n_s[i] == (unsigned char)c)
+			return ((void *)(s + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
