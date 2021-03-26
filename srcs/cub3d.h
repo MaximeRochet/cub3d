@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:30:41 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/19 13:45:44 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 10:07:17 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ typedef struct	s_parse
 	t_map		*map;
 	int			error;
 	char		*file;
-	int			nb_parse;
-
+	char		*file_map;
+	int			ind;
 }				t_parse;
 
 

@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:30:41 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/19 13:45:28 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 14:20:19 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ char		*ft_strchr(const char *s, int c);
 size_t		ft_strlen(const char *str);
 char		*ft_strfjoin(char *s1, char *s2);
 int			ft_isdigit(int c);
-
 int			ft_atoi(const char *str);
+
 void		print_struct(t_parse stock);
 char 		*read_file(char *fichier);
 int 		parsing(char *name_file);
