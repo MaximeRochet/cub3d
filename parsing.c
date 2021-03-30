@@ -65,6 +65,18 @@ int verif_name(char *namefile, t_parse *stock)
 	
 }
 
+int print_f_err(char* mssg_err, void *free)
+{
+	t_parse	stock;
+
+	
+	stock = *structure();
+	stock.error = 1;
+	printf("Erreur\n%s\n", mssg_err);
+	free(free);
+	return(0);
+}
+
 int print_err(char* mssg_err)
 {
 	t_parse	stock;

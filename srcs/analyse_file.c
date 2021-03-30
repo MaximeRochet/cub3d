@@ -156,17 +156,47 @@ void redirect(char *file)
 	else if (ft_strchr(charset, file[0]))
 		parse_path(file, stock);
 	else if (file[0] == 'F')
-		parse_fc(file, stock);
+		
+parse_fc(file, stock);
 	else if (file[0] == 'C')
 		parse_fc(file, stock);
 }
 
+int find_user(char *map)
+{
+	char **tab;
+	int i;
+	int y;
+
+	i = -1;
+	y = -1;
+	tab = ft_split(map, '\n');
+	while(tab[++i])
+	{
+		while(tab[i][++y])
+		{
+			if(!strchr("012 NSEW", map[i][y]))
+				return(print_f_err("caractere invalid dans la map", stock));
+			if(strchr("NSEW", map[i][y]) && stock->map->x == NULL)
+			{
+				stock->map->x = y;
+				stock->map->y = i;
+			}
+			if(strchr("NSEW", map[i][y]) && stock->map->x != NULL)	
+				return(print__f_err("position multiple", stock));
+		}
+		y = 0;	
+	}
+}
+
 int parse_map(char *map)
 {
+	if(!find_user(map))
+		return(0);
 	//verif caractere "012NSEW"
 	//recup coordonne et orientation joueurn 
 	//feelflood remplace "0 2NSEW"
-	return(0);
+	return(1);
 
 }
 
@@ -229,28 +259,27 @@ int init_map(char *file, t_parse *stock)
 int	 analyse_file(char *file)
 {
 	char *charset;
-	char **osef;
+	char **tab;
 	int i;
 	int y;
 	t_parse *stock;
 
 	stock = structure();
-	i = 0;
+	i = -1;
 	y = 0;
-	osef = ft_split(file, 10);
-	while(osef[i])
+	tab = ft_split(file, 10);
+	while(tab[++i])
 	{
 		y=0;
-		while(osef[i][y] <= 32)
+		while(tab[i][y] <= 32)
 			y++;
-		if(strchr("RNSWESFC", osef[i][y]))
-			redirect(osef[i] + y);
-		else if(osef[i][y] != '\n' && osef[i][y] != '1')
+		if(strchr("RNSWESFC", tab[i][y]))
+			redirect(tab[i] + y);
+		else if(tab[i][y] != '\n' && tab[i][y] != '1')
 			return(print_err("Ligne incorrect dans le .cub"));
 		if(stock->error == 1)
 			return(0);
-		i++;
 	}
-	free(osef);
+	free(tab);
 	return(init_map(file, stock));
 }
