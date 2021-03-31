@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:07:59 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 17:00:17 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 19:06:33 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,27 @@ int find_user(char **tab, t_parse *stock)
 	return(1);
 }
 
-int close_map(char **tab, int y, int x)
+int close_map(char **tab, int x, int y)
 {
-	const char *charset;
 	int i;
 
-	i = -1;
-	charset = "NSEW02";
+	i = 0;
 	while(tab[i])
-		++i;
-	if(ft_strchr(charset, tab[x][y]))
+		i++;
+	if(ft_strchr("NSEW02", tab[y][x]))
 	{
-		if(x > 0 && x < i - 1 && y > 0 && y < ft_strlen(tab[x]) - 1)
+		if(y > 0 && y < i -1  && x > 0 && x < ft_strlen(tab[y]) - 1)
 		{
-			tab[x][y] = '*';
-			close_map(tab,y-1,x);
-			close_map(tab,y+1,x);
-			close_map(tab,y,x-1);
-			close_map(tab,y,x+1);
+			tab[y][x] = '*';
+			close_map(tab,x - 1,y);
+			close_map(tab,x + 1,y);
+			close_map(tab,x,y - 1);
+			close_map(tab,x,y + 1);
 		}
 		else 
 			return(print_f_err("map ouverte", tab));
 	}	
-	else if(tab[x][y] != '1' && tab[x][y] != '*')
+	else if(tab[y][x] != '1' && tab[y][x] != '*')
 		return (print_err("Caractere incorrect dans la map"));
 	return(1);
 }
@@ -73,9 +71,6 @@ int parse_map(char *map)
 
 	stock = structure();
 	tab = ft_split(map, '\n');
-	/*int i = -1;
-	  while(tab[++i])
-	  printf("\t[%d]%s",i, tab[i]);*/
 
 	if(!find_user(tab, stock))
 		return(0);
@@ -83,11 +78,7 @@ int parse_map(char *map)
 		return(print_f_err("position du joueur inexistante", tab));
 	if (!close_map(tab, stock->map->user_x, stock->map->user_y))
 		return(0);
-	/*int i = -1;
-	  while(tab[++i])
-	  printf("\t[%d]%s",i, tab[i]);*/
-
-	//feelflood remplace "0 2NSEW"
+	printf("salut\n");
 	return(1);
 }
 
