@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 10:34:30 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:46:56 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 16:17:32 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void redirect(char *file, t_parse *stock)
 
 int	 analyse_file(char *file)
 {
-	char *charset;
 	char **tab;
 	int i;
 	int y;
@@ -82,7 +81,7 @@ int	 analyse_file(char *file)
 			y++;
 		if(strchr("RNSWESFC", tab[i][y]))
 			redirect(tab[i] + y, stock);
-		else if(tab[i][y] != '\n' && tab[i][y] != '1')
+		else if(!strchr("1 02NEWS\n", tab[i][y]))
 			return(print_err("Ligne incorrect dans le .cub"));
 		if(stock->error == 1)
 			return(0);

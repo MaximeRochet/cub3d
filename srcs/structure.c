@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:03:23 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:03:59 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:06:07 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ t_parse	*structure(void)
 		stock = (t_parse){.error = 0};
 		init_t_parse(&stock);
 	}
-	printf("ADRESSE STRUCTURE = %p\n", &stock);
 	return(&stock);
 }

@@ -6,7 +6,7 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/03/31 13:21:02 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/03/31 15:05:49 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ CC		=	gcc
 ${NAME}:
 	@${CC} ${SRCS} ${SRCS_LIB} ${CFLAGS}
 	@echo "Compilation Succes !"
-	./a.out map.cub
+	@./a.out map.cub
 
 all: ${NAME}
 

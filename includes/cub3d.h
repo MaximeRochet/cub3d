@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:30:41 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:20:36 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 16:14:53 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,5 @@ void		redirect(char *file, t_parse *stock);
 int			init_map(char *file, t_parse *stock);
 int			find_map(char *file);
 int			parse_map(char *map);
-int			find_user(char *map, t_parse *stock);
+int			find_user(char **tab, t_parse *stock);
 #endif

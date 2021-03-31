@@ -8,9 +8,9 @@ void print_struct(t_parse stock)
 	printf("|_________________________|\n");
 	printf("|       __STOCK__         |\n");
 	printf("| error = %d\n", stock.error);
-	printf("| file  = \n%s \n", stock.file);
+/*	printf("| file  = \n%s \n", stock.file);*/
 	printf("| map_file  = \n%s \n", stock.file_map);
-	printf("| ind = %d \n", stock.ind);
+/*	printf("| ind = %d \n", stock.ind);
 	printf("| \n");
 
 	printf("|        __RES__          |\n");
@@ -36,7 +36,7 @@ void print_struct(t_parse stock)
 	printf("| WE = %s \n", stock.path->WE);
 	printf("| EA = %s \n", stock.path->EA);
 	printf("| S = %s \n", stock.path->S);
-	printf("| \n");
+	printf("| \n");*/
 
 	printf("|        __MAP__          |\n");
 	printf("| close  = %d \n", stock.map->close);
