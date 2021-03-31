@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:30:41 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/22 14:20:19 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:20:36 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "./utils/libft.h"
+# include "../utils/libft.h"
 
 typedef struct	s_res
 {
@@ -64,23 +64,38 @@ typedef struct	s_parse
 	t_map		*map;
 	int			error;
 	char		*file;
-	int			nb_parse;
-
+	char		*file_map;
+	int			ind;
 }				t_parse;
 
 
-char		*ft_strchr(const char *s, int c);
 size_t		ft_strlen(const char *str);
+char		*ft_strchr(const char *s, int c);
 char		*ft_strfjoin(char *s1, char *s2);
 int			ft_isdigit(int c);
 int			ft_atoi(const char *str);
 
+
+t_parse		*structure(void);
 void		print_struct(t_parse stock);
 char 		*read_file(char *fichier);
 int 		parsing(char *name_file);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			analyse_file(char *file);
-t_parse		*structure(void);
 int 		verif_name(char *namefile, t_parse *stock);
 int 		print_err(char* mssg_err);
+int 		print_f_err(char* mssg_err, void *test);
+
+int			verif_r(char *str, t_parse *stock);
+void		parse_r(char *file_r, t_parse *stock);
+int			verif_fc(char* str, t_parse *stock);
+void		parse_fc(char *file_fc, t_parse *stock);
+void		parse_path(char *file_path, t_parse *stock);
+char		*verif_path(char *str, t_parse *stock);
+void		redirect(char *file, t_parse *stock);
+
+int			init_map(char *file, t_parse *stock);
+int			find_map(char *file);
+int			parse_map(char *map);
+int			find_user(char *map, t_parse *stock);
 #endif

@@ -6,17 +6,17 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/03/26 16:30:05 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/03/31 13:21:02 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 SRCS_PATH = ./srcs/
-SRCS_NAME = ft_strfjoin.c \
-	   parsing.c \
-	   analyse_file.c \
-	   print_struct.c
-	   #premier_pas_mlx.c
+SRCS_NAME = analyse_file.c ft_strfjoin.c \
+			parsing.c print_struct.c \
+			analyse_map.c parse_fcr.c \
+			structure.c
+	   		#premier_pas_mlx.c
 
 UTILS_PATH = ./utils/
 LIB = ft_isalpha.c ft_lstadd_back.c \
@@ -38,7 +38,7 @@ LIB = ft_isalpha.c ft_lstadd_back.c \
 SRCS_LIB = $(addprefix $(UTILS_PATH),$(LIB))
 SRCS = $(addprefix $(SRCS_PATH),$(SRCS_NAME))
 
-HEADER	= cub3d.h
+HEADER	= includes/cub3d.h
 
 RM		=	rm -f
 CC		=	gcc

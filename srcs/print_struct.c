@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 void print_struct(t_parse stock)
 
@@ -40,9 +40,9 @@ void print_struct(t_parse stock)
 
 	printf("|        __MAP__          |\n");
 	printf("| close  = %d \n", stock.map->close);
-	printf("| user_x  = %d \n", stock.map->close);
-	printf("| user_y  = %d \n", stock.map->close);
-	printf("| user_deg = %d \n", stock.map->close);	
+	printf("| user_x  = %d \n", stock.map->user_x);
+	printf("| user_y  = %d \n", stock.map->user_y);
+	printf("| user_deg = %d \n", stock.map->user_deg);	
 	printf("|_________________________|\n");
 }
 

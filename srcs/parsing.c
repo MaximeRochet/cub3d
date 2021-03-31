@@ -6,43 +6,11 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:04:04 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/24 10:30:04 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:06:07 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-//map, carac autorise 012NSEW
-//entouree de 1
-//indication separee d une ou plusieurs \no
-
-void init_t_parse(t_parse *stock)
-{
-	static t_map map = (t_map){.close = 0};
-	static t_res res = (t_res){.x = -1};
-	static t_path path = (t_path){.NO = 0};
-	static t_rgb f = (t_rgb){.r = -1};
-	static t_rgb c = (t_rgb){.r = -1};
-
-	stock->map = &map;
-	stock->res = &res;
-	stock->path = &path;
-	stock->f = &f;
-	stock->c = &c;	
-}
-
-t_parse	*structure(void)
-{
-	static int var = 0;
-	static t_parse stock;
-
-	if (!var) {
-		var = 1;
-		stock = (t_parse){.error = 0};
-		init_t_parse(&stock);
-	}
-	return(&stock);
-}
+#include "../includes/cub3d.h"
 
 char *read_file(char *fichier)
 {
@@ -74,6 +42,17 @@ int verif_name(char *namefile, t_parse *stock)
 		return(print_err("Nom du fichier invalide"));	
 	}
 	return(1);	
+}
+
+int print_f_err(char* mssg_err, void *test)
+{
+	t_parse	*stock;
+
+	free(test);
+	stock = structure();
+	stock->error = 1;
+	printf("Erreur\n%s\n", mssg_err);
+	return(0);
 }
 
 int print_err(char* mssg_err)
