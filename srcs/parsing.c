@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:04:04 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:06:07 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:47:46 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int print_f_err(char* mssg_err, void *test)
 {
 	t_parse	*stock;
 
-	free(test);
+	if(test)
+		free(test);
 	stock = structure();
 	stock->error = 1;
 	printf("Erreur\n%s\n", mssg_err);

@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 10:34:30 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:19:10 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:46:56 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void parse_path(char *file_path, t_parse *stock)
 		if(file_path[0] == 'S' && stock->path->S == NULL)
 			stock->path->S = path;
 		stock->ind += 100;
-
 }
 
 void redirect(char *file, t_parse *stock)
@@ -58,9 +57,8 @@ void redirect(char *file, t_parse *stock)
 		parse_r(file, stock);
 	else if (ft_strchr(charset, file[0]))
 		parse_path(file, stock);
-	else if (file[0] == 'F')
-		
-parse_fc(file, stock);
+	else if (file[0] == 'F')	
+		parse_fc(file, stock);
 	else if (file[0] == 'C')
 		parse_fc(file, stock);
 }

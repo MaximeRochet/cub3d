@@ -6,21 +6,19 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:07:59 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:08:12 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:57:20 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int find_user(char *map, t_parse *stock)
+int find_user(char **tab, t_parse *stock)
 {
-	char **tab;
 	int i;
 	int y;
 
 	i = -1;
 	y = -1;
-	tab = ft_split(map, '\n');
 	while(tab[++i])
 	{
 		while(tab[i][++y])
@@ -41,17 +39,26 @@ int find_user(char *map, t_parse *stock)
 	return(1);
 }
 
+int close_map(char **tab, t_parse *stock)
+{
+	return(0);
+}
+
 int parse_map(char *map)
 {
 	t_parse *stock;
+	char 	**tab;
+
 	stock = structure();
-	if(!find_user(map, stock))
+	tab = ft_split(map, '\n');
+	if(!find_user(tab, stock))
+		return(0);
+	if (!close_map(tab, stock))
 		return(0);
 	//verif caractere "012NSEW"
 	//recup coordonne et orientation joueurn
 	//feelflood remplace "0 2NSEW"
 	return(1);
-
 }
 
 int find_map(char *file)
