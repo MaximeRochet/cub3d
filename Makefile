@@ -6,7 +6,7 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/03/31 15:05:49 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/04/01 18:24:13 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ SRCS_PATH = ./srcs/
 SRCS_NAME = analyse_file.c ft_strfjoin.c \
 			parsing.c print_struct.c \
 			analyse_map.c parse_fcr.c \
-			structure.c
-	   		#premier_pas_mlx.c
+			structure.c premier_pas_mlx.c \
+			main.c
 
 UTILS_PATH = ./utils/
 LIB = ft_isalpha.c ft_lstadd_back.c \
@@ -45,9 +45,9 @@ CC		=	gcc
 #CFLAGS	=	-Wall -Werror -Wextra
 
 ${NAME}:
-	@${CC} ${SRCS} ${SRCS_LIB} ${CFLAGS}
+	@${CC} ${SRCS} ${SRCS_LIB} libmlx.dylib ${CFLAGS} 
 	@echo "Compilation Succes !"
-	@./a.out map.cub
+	@./a.out map.cub 
 
 all: ${NAME}
 

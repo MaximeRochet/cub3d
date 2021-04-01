@@ -11,13 +11,13 @@ void print_struct(t_parse stock)
 /*	printf("| file  = \n%s \n", stock.file);*/
 	printf("| map_file  = \n%s \n", stock.file_map);
 /*	printf("| ind = %d \n", stock.ind);
-	printf("| \n");
+	printf("| \n");*/
 
 	printf("|        __RES__          |\n");
 	printf("| x  = %d \n", stock.res->x);
 	printf("| y  = %d \n", stock.res->y);
 	printf("| \n");
-
+/*
 	printf("|        __F__            |\n");
 	printf("| r  = %d \n", stock.f->r);
 	printf("| g  = %d \n", stock.f->g);
@@ -39,7 +39,6 @@ void print_struct(t_parse stock)
 	printf("| \n");*/
 
 	printf("|        __MAP__          |\n");
-	printf("| close  = %d \n", stock.map->close);
 	printf("| user_x  = %d \n", stock.map->user_x);
 	printf("| user_y  = %d \n", stock.map->user_y);
 	printf("| user_deg = %d \n", stock.map->user_deg);	

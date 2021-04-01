@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:10:01 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 13:10:09 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 18:20:15 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,27 @@ int verif_r(char *str, t_parse *stock)
 		while(tab[i][++y])
 			if(!ft_isdigit(tab[i][y]))
 				return(print_err("Element non digit dans F ou C"));
-		//verif taille ecran
 		if(i == 3)
 			return(print_err("Resolution = 2 chiffres"));
 	}
 	free(tab);
 	return(1);
 
+}
+
+void redimention(t_parse *stock, int x, int y)
+{
+	int size_x;
+	int size_y;
+	void *mlx_ptr;
+
+	mlx_ptr = mlx_init();
+	mlx_get_screen_size(mlx_ptr, &size_x, &size_y);
+	if(x > size_x)
+		stock->res->x = size_x;
+	if(y > size_y)
+		stock->res->y = size_y;
+	free(mlx_ptr);
 }
 
 void	parse_r(char *file_r, t_parse *stock)
@@ -47,6 +61,7 @@ void	parse_r(char *file_r, t_parse *stock)
 
 	stock->res->x = ft_atoi(tab[1]);
 	stock->res->y = ft_atoi(tab[2]);
+	redimention(stock, stock->res->x, stock->res->y);
 	stock->ind += 1;
 	free(tab);
 }

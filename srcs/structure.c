@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:03:23 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 14:06:07 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 17:10:08 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void init_t_parse(t_parse *stock)
 {
-	static t_map map = (t_map){.close = 0};
+	static t_map map = (t_map){.user_x = 0};
 	static t_res res = (t_res){.x = -1};
 	static t_path path = (t_path){.NO = 0};
 	static t_rgb f = (t_rgb){.r = -1};

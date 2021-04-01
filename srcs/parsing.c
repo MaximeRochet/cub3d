@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:04:04 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 19:07:08 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 18:37:29 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,4 @@ int parsing(char *name_file)
 	if(stock->error)
 		return(0);
 	return(1);
-
-}
-
-int main(int ac, char **av)
-{
-	(void)ac;
-
-	printf("parsing = %d\n", parsing(av[1]));
-	t_parse *stock;
-	stock = structure();
-	print_struct(*stock);
-	return(0);
 }

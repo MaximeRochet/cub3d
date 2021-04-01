@@ -1,11 +1,14 @@
-#include "mlx.h"
+//#include "../minilibx_mms_20200219/mlx.h"
+#include "../includes/cub3d.h"
 
-int main()
+void first_step_mlx()
 {
 	void *mlx_ptr;
 	void *win_ptr;
 	int i;
 	int y;
+	int size_x;
+	int size_y;
 
 	i = 0;
 	y = 0;
@@ -27,5 +30,7 @@ int main()
 			mlx_pixel_put(mlx_ptr, win_ptr, i, y, 0x3409A3);
 		y=0;
 	}
+	//mlx_get_screen_size(mlx_ptr, &size_x, &size_y);
+	//printf("%d   %d\n", size_x, size_y);
 	mlx_loop(mlx_ptr);
 }

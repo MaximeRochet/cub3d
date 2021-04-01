@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/18 12:30:41 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/01 18:27:20 by mrochet          ###   ########lyon.fr   */
+/*   Created: 2021/04/01 18:23:36 by mrochet           #+#    #+#             */
+/*   Updated: 2021/04/01 18:38:32 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../includes/cub3d.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+int main(int ac, char **av)
+{
+	(void)ac;
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "../utils/libft.h"
-
-# include "parse_cub3d.h"
-# include "osef.h"
-# include "../minilibx_mms_20200219/mlx.h"
-
-#endif
+	printf("parsing = %d\n", parsing(av[1]));
+	
+	t_parse *stock;
+	stock = structure();
+	print_struct(*stock);
+	
+	printf("test main \n")
+	first_step_mlx();
+	return(0);
+}
