@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:07:59 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 19:06:33 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 14:14:13 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int parse_map(char *map)
 		return(print_f_err("position du joueur inexistante", tab));
 	if (!close_map(tab, stock->map->user_x, stock->map->user_y))
 		return(0);
-	printf("salut\n");
 	return(1);
 }
 

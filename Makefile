@@ -6,7 +6,7 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/04/01 18:24:13 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/04/08 14:40:40 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ CC		=	gcc
 #CFLAGS	=	-Wall -Werror -Wextra
 
 ${NAME}:
-	@${CC} ${SRCS} ${SRCS_LIB} libmlx.dylib ${CFLAGS} 
+	@${CC} -g -fsanitize=address ${SRCS} ${SRCS_LIB} libmlx.dylib ${CFLAGS} 
 	@echo "Compilation Succes !"
 	@./a.out map.cub 
 
