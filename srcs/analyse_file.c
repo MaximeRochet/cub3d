@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 10:34:30 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/08 18:06:43 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 17:23:12 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ void parse_path(char *file_path, t_parse *stock)
 		if(!path)
 			return;
 		if(file_path[0] == 'N' && stock->path->NO == NULL)
-			stock->path->NO = path;
+			stock->path->NO = ft_strdup(path);
 		if(file_path[0] == 'S' && file_path[1] == 'O' && stock->path->SO == NULL)
-			stock->path->SO = path;
+			stock->path->SO = ft_strdup(path);
 		if(file_path[0] == 'W' && stock->path->WE == NULL)
-			stock->path->WE = path;
+			stock->path->WE = ft_strdup(path);
 		if(file_path[0] == 'E' && stock->path->EA == NULL)
-			stock->path->EA = path;
+			stock->path->EA = ft_strdup(path);
 		if(file_path[0] == 'S' && stock->path->S == NULL)
-			stock->path->S = path;
+			stock->path->S = ft_strdup(path);
 		stock->ind += 100;
 }
 

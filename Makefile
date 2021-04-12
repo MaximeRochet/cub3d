@@ -6,7 +6,7 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/04/12 13:39:51 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/04/12 17:36:03 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ HEADER	= includes/cub3d.h
 
 RM		=	rm -f
 CC		=	gcc
-FSAN	=	-g -fsanitize=address
+#FSAN	=	-g -fsanitize=address
 #CFLAGS	=	-Wall -Werror -Wextra
 
 ${NAME}:

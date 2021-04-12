@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:07:59 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/08 18:08:35 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 18:09:27 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int find_user(char **tab, t_parse *stock)
 		{
 			if(!strchr("012 NSEW", tab[i][y]))
 				return(print_f_err("map invalide", tab, stock));
-			if(strchr("NSEW", tab[i][y]) && stock->map->user_x == 0)
+			if(strchr("NSEW", tab[i][y]) && stock->map->user_x == -1)
 			{
 				stock->map->user_x = y;
 				stock->map->user_y = i;
@@ -67,15 +67,18 @@ int close_map(char **tab, int x, int y, t_parse *stock)
 int parse_map(t_parse *stock)
 {
 	char 	**tab;
-	char const *map;
 	
-	tab = ft_split(map, '\n');
+	tab = ft_split(stock->file_map, '\n');
 	if(!find_user(tab, stock))
 		return(0);
 	if (!stock->map->user_x)	
 		return(print_f_err("position du joueur inexistante", tab, stock));
 	if (!close_map(tab, stock->map->user_x, stock->map->user_y, stock))
+	{
+		free(tab);
 		return(0);
+	}
+	free(tab);
 	return(1);
 }
 
@@ -120,7 +123,7 @@ int init_map(char *file, t_parse *stock)
 	while(file[++i] &&  n < nb_ligne)
 		if(file[i] == '\n' && file[i + 1] != '\n')
 			n++;
-	stock->file_map = calloc(ft_strlen(file + i) + 1,sizeof(char));
+	stock->file_map = ft_strdup(file + i);
 	if(!stock->file_map)
 		return(0);
 	i = -1;
