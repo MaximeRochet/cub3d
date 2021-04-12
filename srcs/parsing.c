@@ -6,23 +6,23 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:04:04 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/01 18:37:29 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 15:36:46 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-char *read_file(char *fichier)
+char	*read_file(char *fichier)
 {
 	int fd;
 	char buffer[10];
 	char *fc;
 	int read_value;
 
+	fc = NULL;
 	fd = open(fichier, O_RDONLY);
 	if (fd == -1)
 		return(0);
-	fc = NULL;
 	while(((read_value = read(fd, buffer, 9)) !=  0))
 	{
 		buffer[read_value] = '\0';
@@ -32,54 +32,48 @@ char *read_file(char *fichier)
 	return(fc);
 }
 
-int verif_name(char *namefile, t_parse *stock)
+int		verif_name(char *namefile, t_parse *stock)
 {
 	int size;
 
 	size = ft_strlen(namefile);
 	if (ft_strncmp((namefile + (size - 4)), ".cub", 5))
 	{
-		return(print_err("Nom du fichier invalide"));	
+		return(print_err("Nom du fichier invalide", stock));	
 	}
 	return(1);	
 }
 
-int print_f_err(char* mssg_err, void *test)
+int		print_f_err(char* mssg_err, void *test, t_parse *stock)
 {
-	t_parse	*stock;
 
 	if(test)
 		free(test);
-	stock = structure();
 	stock->error = 1;
 	printf("Erreur\n%s\n", mssg_err);
 	return(0);
 }
 
-int print_err(char* mssg_err)
+int		print_err(char* mssg_err, t_parse *stock)
 {
-	t_parse	*stock;
 
-	stock = structure();
 	stock->error = 1;
 	printf("Erreur\n%s\n", mssg_err);
 	return(0);
 }
 
-int parsing(char *name_file)
+int		parsing(char *name_file, t_parse *stock)
 {
 	char 	*file;
-	t_parse *stock;
 
-	stock = structure();
 	if(!name_file)
-		return(print_err("mauvais nombre d'argument"));
+		return(print_err("mauvais nombre d'argument", stock));
 	verif_name(name_file, stock);
 	file = read_file(name_file);
 	if(!file)
-		return(0);
+		return(print_err("fichier illisible", stock));
 	stock->file = file;
-	analyse_file(file);
+	analyse_file(file, stock);
 	if(stock->error)
 		return(0);
 	return(1);

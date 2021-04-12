@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:08:34 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/01 17:08:51 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 15:24:30 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct	s_parse
 	int			ind;
 }				t_parse;
 
-
 size_t		ft_strlen(const char *str);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strfjoin(char *s1, char *s2);
@@ -65,15 +64,15 @@ int			ft_isdigit(int c);
 int			ft_atoi(const char *str);
 
 
-t_parse		*structure(void);
+void		structure(t_parse *stock);
 void		print_struct(t_parse stock);
 char 		*read_file(char *fichier);
-int 		parsing(char *name_file);
+int 		parsing(char *name_file, t_parse *stock);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			analyse_file(char *file);
+int			analyse_file(char *file, t_parse *parse);
 int 		verif_name(char *namefile, t_parse *stock);
-int 		print_err(char* mssg_err);
-int 		print_f_err(char* mssg_err, void *test);
+int 		print_err(char* mssg_err, t_parse *stock);
+int 		print_f_err(char* mssg_err, void *test, t_parse *stock);
 
 int			verif_r(char *str, t_parse *stock);
 void		parse_r(char *file_r, t_parse *stock);
@@ -84,7 +83,7 @@ char		*verif_path(char *str, t_parse *stock);
 void		redirect(char *file, t_parse *stock);
 
 int			init_map(char *file, t_parse *stock);
-int			find_map(char *file);
-int			parse_map(char *map);
+int			find_map(char *file, t_parse *stock);
+int			parse_map(t_parse *stock);
 int			find_user(char **tab, t_parse *stock);
 #endif

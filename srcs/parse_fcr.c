@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:10:01 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/01 18:20:15 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 15:01:37 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int verif_r(char *str, t_parse *stock)
 	i = 0;
 	y = -1;
 	if(stock->res->x != -1)
-		return(print_err("Ligne R multiple"));
+		return(print_err("Ligne R multiple", stock));
 	tab = ft_split(str, ' ');
 	while(tab[++i])
 	{
 		while(tab[i][++y])
 			if(!ft_isdigit(tab[i][y]))
-				return(print_err("Element non digit dans F ou C"));
+				return(print_err("Element non digit dans F ou C", stock));
 		if(i == 3)
-			return(print_err("Resolution = 2 chiffres"));
+			return(print_err("Resolution = 2 chiffres", stock));
 	}
 	free(tab);
 	return(1);
@@ -75,9 +75,9 @@ int verif_fc(char* str, t_parse *stock)
 	i = -1;
 	y = -1;
 	if(str[0] == 'F' && stock->f->r != -1)
-		return(print_err("Ligne F multiple"));
+		return(print_err("Ligne F multiple", stock));
 	if(str[0] == 'C' && stock->c->r != -1)
-		return(print_err("Ligne C multiple"));
+		return(print_err("Ligne C multiple", stock));
 	while(!ft_isdigit(*str))
 		str++;
 	tab = ft_split(str, ',');
@@ -85,10 +85,10 @@ int verif_fc(char* str, t_parse *stock)
 	{
 		while(tab[i][++y])
 			if(!ft_isdigit(tab[i][y]))
-				return(print_err("Element non digit dans F ou C"));
+				return(print_err("Element non digit dans F ou C", stock));
 		y = -1;
 		if(!(atoi(tab[i]) < 255 &&  atoi(tab[i]) > 0) || i == 3)
-			return(print_err("Couleur = 3 chiffre entre 0 et 255 "));
+			return(print_err("Couleur = 3 chiffre entre 0 et 255", stock));
 	}
 	free(tab);
 	return(1);

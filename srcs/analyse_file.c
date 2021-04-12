@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 10:34:30 by mrochet           #+#    #+#             */
-/*   Updated: 2021/03/31 16:17:32 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 18:06:43 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,12 @@ void redirect(char *file, t_parse *stock)
 		parse_fc(file, stock);
 }
 
-int	 analyse_file(char *file)
+int	 analyse_file(char *file, t_parse *stock)
 {
 	char **tab;
 	int i;
 	int y;
-	t_parse *stock;
 
-	stock = structure();
 	i = -1;
 	y = 0;
 	tab = ft_split(file, 10);
@@ -82,7 +80,7 @@ int	 analyse_file(char *file)
 		if(strchr("RNSWESFC", tab[i][y]))
 			redirect(tab[i] + y, stock);
 		else if(!strchr("1 02NEWS\n", tab[i][y]))
-			return(print_err("Ligne incorrect dans le .cub"));
+			return(print_err("Ligne incorrect dans le .cub", stock));
 		if(stock->error == 1)
 			return(0);
 	}
