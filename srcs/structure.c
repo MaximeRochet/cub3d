@@ -6,75 +6,22 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:03:23 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/12 16:49:00 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 18:00:23 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-/*
-void init_t_parse(t_parse *stock)
+
+void	structure(t_parse *stock)
 {
-	static t_map map = (t_map){.user_x = 0};
-	static t_res res = (t_res){.x = -1};
-	static t_path path = (t_path){.NO = 0};
-	static t_rgb f = (t_rgb){.r = -1};
-	static t_rgb c = (t_rgb){.r = -1};
-
-	stock->map = &map;
-	stock->res = &res;
-	stock->path = &path;
-	stock->f = &f;
-	stock->c = &c;
-}
-
-t_parse	*structure(void)
-{
-	static int var = 0;
-	static t_parse stock;
-
-	if (!var) {
-		var = 1;
-		stock = (t_parse){.error = 0};
-		init_t_parse(&stock);
-	}
-	stock.error = 0;
-	stock.map.user_x = -1;
-	return(&stock);
-}
-
-*/
-
-
-void structure(t_parse *stock)
-{
-	t_map *map;
-	map = calloc(1, sizeof(t_map));
-	stock->map = map;
-	stock->map->user_x = -1;
-
-	t_res *res;
-	res = calloc(1, sizeof(t_res));
-	stock->res = res;
-	stock->res->x = -1;
-
-	t_path *path;
-	path = calloc(1, sizeof(t_path));
-	stock->path = path;
-	stock->path->NO = NULL;
-	stock->path->SO = NULL;
-	stock->path->EA = NULL;
-	stock->path->WE = NULL;
-	stock->path->S = NULL;
-
-	t_rgb *f;
-	f = calloc(1, sizeof(t_rgb));
-	stock->f = f;
-	stock->f->r = -1;
-	
-	t_rgb *c;
-	c = calloc(1, sizeof(t_rgb));
-	stock->c = c;
-	stock->c->r = -1;
-
+	stock->map.user_x = -1;
+	stock->res.x = -1;
+	stock->path.NO = NULL;
+	stock->path.SO = NULL;
+	stock->path.EA = NULL;
+	stock->path.WE = NULL;
+	stock->path.S = NULL;
+	stock->f.r = -1;
+	stock->c.r = -1;
 	stock->error = 0;
 }

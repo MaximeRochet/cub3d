@@ -6,13 +6,13 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/04/12 17:36:03 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/04/22 16:26:40 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 SRCS_PATH = ./srcs/
-SRCS_NAME = analyse_file.c ft_strfjoin.c \
+SRCS_NAME = analyse_file.c ft_free_split.c\
 			parsing.c print_struct.c \
 			analyse_map.c parse_fcr.c \
 			structure.c premier_pas_mlx.c \

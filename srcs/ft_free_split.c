@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   osef.h                                             :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 18:25:20 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/20 15:12:08 by mrochet          ###   ########lyon.fr   */
+/*   Created: 2021/04/22 16:22:07 by mrochet           #+#    #+#             */
+/*   Updated: 2021/04/22 16:36:29 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OSEF_H
-# define OSEF_H
+#include "../includes/cub3d.h"
 
-void	first_step_mlx(t_parse *stock);
+void	ft_free_split(char **tab)
+{
+	int	i;
 
-#endif
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
+}

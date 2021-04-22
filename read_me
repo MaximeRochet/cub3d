@@ -1,0 +1,5 @@
+structure() casser, changer les poiteurs ou malloc 
+
+free les splits
+fjoin peut etre casser
+read_file peut etre casser

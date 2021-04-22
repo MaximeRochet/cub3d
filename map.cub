@@ -1,4 +1,4 @@
-R 10000 100000
+R 1000 1500
 
 S ./path_to_the_sprite_texture
 

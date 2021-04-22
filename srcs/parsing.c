@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:04:04 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/12 15:36:46 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/22 17:59:25 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,67 +14,68 @@
 
 char	*read_file(char *fichier)
 {
-	int fd;
-	char buffer[10];
-	char *fc;
-	int read_value;
+	int		fd;
+	char	buffer[100];
+	char	*fc;
+	int		read_value;
+	char	*tmp;
 
 	fc = NULL;
 	fd = open(fichier, O_RDONLY);
 	if (fd == -1)
-		return(0);
-	while(((read_value = read(fd, buffer, 9)) !=  0))
+		return (0);
+	read_value = 1;
+	while (read_value)
 	{
+		read_value = read(fd, buffer, 99);
 		buffer[read_value] = '\0';
-		fc = ft_strfjoin(fc, buffer);
+		tmp = ft_strjoin(fc, buffer);
+		free(fc);
+		fc = tmp;
 	}
 	close (fd);
-	return(fc);
+	return (fc);
 }
 
-int		verif_name(char *namefile, t_parse *stock)
+int	verif_name(char *namefile, t_parse *stock)
 {
-	int size;
+	int	size;
 
 	size = ft_strlen(namefile);
 	if (ft_strncmp((namefile + (size - 4)), ".cub", 5))
-	{
-		return(print_err("Nom du fichier invalide", stock));	
-	}
-	return(1);	
+		return (print_err("Nom du fichier invalide", stock));
+	return (1);
 }
 
-int		print_f_err(char* mssg_err, void *test, t_parse *stock)
+int	print_f_err(char *mssg_err, void *test, t_parse *stock)
 {
-
-	if(test)
+	if (test)
 		free(test);
 	stock->error = 1;
 	printf("Erreur\n%s\n", mssg_err);
-	return(0);
+	return (0);
 }
 
-int		print_err(char* mssg_err, t_parse *stock)
+int	print_err(char *mssg_err, t_parse *stock)
 {
-
 	stock->error = 1;
 	printf("Erreur\n%s\n", mssg_err);
-	return(0);
+	return (0);
 }
 
-int		parsing(char *name_file, t_parse *stock)
+int	parsing(char *name_file, t_parse *stock)
 {
-	char 	*file;
+	char	*file;
 
-	if(!name_file)
-		return(print_err("mauvais nombre d'argument", stock));
+	if (!name_file)
+		return (print_err("mauvais nombre d'argument", stock));
 	verif_name(name_file, stock);
 	file = read_file(name_file);
-	if(!file)
-		return(print_err("fichier illisible", stock));
+	if (!file)
+		return (print_err("fichier illisible", stock));
 	stock->file = file;
 	analyse_file(file, stock);
-	if(stock->error)
-		return(0);
-	return(1);
+	if (stock->error)
+		return (0);
+	return (1);
 }
