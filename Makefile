@@ -6,7 +6,7 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/04/22 16:26:40 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/04/27 15:32:45 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS_NAME = analyse_file.c ft_free_split.c\
 			parsing.c print_struct.c \
 			analyse_map.c parse_fcr.c \
 			structure.c premier_pas_mlx.c \
-			main.c
+			vect_lst.c main.c
 
 UTILS_PATH = ./utils/
 LIB = ft_isalpha.c ft_lstadd_back.c \
@@ -42,7 +42,7 @@ HEADER	= includes/cub3d.h
 
 RM		=	rm -f
 CC		=	gcc
-#FSAN	=	-g -fsanitize=address
+FSAN	=	-g -fsanitize=address
 #CFLAGS	=	-Wall -Werror -Wextra
 
 ${NAME}:

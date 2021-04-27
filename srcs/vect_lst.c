@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   vect_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 16:30:18 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/26 14:48:59 by mrochet          ###   ########lyon.fr   */
+/*   Created: 2021/04/27 14:12:27 by mrochet           #+#    #+#             */
+/*   Updated: 2021/04/27 16:53:56 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../includes/cub3d.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <math.h>
-# include "../utils/libft.h"
 
-# include "parse_cub3d.h"
-# include "calcul_cub3d.h"
-# include "../minilibx_mms_20200219/mlx.h"
+void vect_lst(t_recap recap)
+{
+	t_plan *plan;
+	t_plan *plan2;
+	t_list *plan_north;
+	t_list **pn;
 
-#endif
+	plan = malloc(sizeof(t_plan));
+	printf("%lu\n", sizeof(t_plan));
+	plan = new_plan(1,2,3);
+	print_plan(plan);
+
+	plan_north = ft_lstnew(plan);
+	plan2 = new_plan(4,5,6);
+
+	*pn = plan_north;
+	//ft_lstadd_back(pn, ft_lstnew(plan2));
+
+}
