@@ -1,5 +1,20 @@
 #include "../includes/cub3d.h"
 
+void print_tab_plan(t_plan **plan, int lon, char *def)
+{
+	int i;
+	i = -1;
+
+	printf("%s\n", def);
+	while(++i <=  lon)
+	{
+		if(!plan[i])
+			printf("(NULL)\n");
+		else
+			print_plan(plan[i]);
+	}
+}
+
 void print_struct(t_parse stock)
 
 {
@@ -43,4 +58,29 @@ void print_struct(t_parse stock)
 	printf("| user_y  = %d \n", stock.map.user_y);
 	printf("| user_deg = %d \n", stock.map.user_deg);	
 	printf("|_________________________|\n");
+}
+
+void print_recap(t_recap recap)
+{
+	int i = -1;
+
+	printf("adr stock = %p\n", &recap);
+	printf("|_________________________|\n");
+	printf("|       __RECAP__         |\n");
+	printf("\n");
+	printf("h = %d\n", recap.h);
+	printf("w = %d\n", recap.w);
+	printf("map = \n%s\n", recap.map);
+	printf("rv = %f\n", recap.rv);
+	printf("rh = %f\n", recap.rh);
+	printf("|_________________________|\n");
+}
+void print_plan(t_plan *plan)
+{
+	printf("_________\nplan = >\na = %f\nb = %f\nc = %f\nd = %f\n________\n",plan->a, plan->b, plan->c, plan->d);
+}
+
+void print_vect(t_vect vect)
+{
+	printf("_________\nvecteur= >\na = %f\nb = %f\nc = %f\n________\n",vect.x, vect.y, vect.z);
 }

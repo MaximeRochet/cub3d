@@ -6,17 +6,15 @@
 #    By: mrochet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/02 16:01:43 by mrochet           #+#    #+#              #
-#    Updated: 2021/04/27 15:32:45 by mrochet          ###   ########lyon.fr    #
+#    Updated: 2021/05/03 15:04:43 by mrochet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 SRCS_PATH = ./srcs/
-SRCS_NAME = analyse_file.c ft_free_split.c\
-			parsing.c print_struct.c \
-			analyse_map.c parse_fcr.c \
-			structure.c premier_pas_mlx.c \
-			vect_lst.c main.c
+SRCS_NAME = analyse_map.c ft_free_split.c parse_fcr.c plan_tab.c \
+			print_struct.c analyse_file.c create_rays.c main.c \
+			parsing.c premier_pas_mlx.c structure.c
 
 UTILS_PATH = ./utils/
 LIB = ft_isalpha.c ft_lstadd_back.c \

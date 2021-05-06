@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:10:01 by mrochet           #+#    #+#             */
-/*   Updated: 2021/04/22 17:35:41 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/03 15:07:21 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	verif_r(char *str, t_parse *stock)
 	tab = ft_split(str, ' ');
 	while (tab[++i])
 	{
+		y = -1;
 		while (tab[i][++y])
 			if (!ft_isdigit(tab[i][y]))
 				return (print_err("Element non digit dans F ou C", stock));
