@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:10:01 by mrochet           #+#    #+#             */
-/*   Updated: 2021/05/03 15:07:21 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 18:58:01 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	verif_fc(char *str, t_parse *stock)
 			if (!ft_isdigit(tab[i][y]))
 				return (print_err("Element non digit dans F ou C", stock));
 		y = -1;
-		if (!(atoi(tab[i]) < 255 && atoi(tab[i]) > 0) || i == 3)
+		if (!(atoi(tab[i]) <= 255 && atoi(tab[i]) >= 0) || i == 3)
 			return (print_err("Couleur = 3 chiffre entre 0 et 255", stock));
 	}
 	ft_free_split(tab);

@@ -70,6 +70,8 @@ void print_recap(t_recap recap)
 	printf("\n");
 	printf("h = %d\n", recap.h);
 	printf("w = %d\n", recap.w);
+	printf("sol = %d\n", recap.sol);
+	printf("ciel = %d\n", recap.ciel);
 	printf("map = \n%s\n", recap.map);
 	printf("rv = %f\n", recap.rv);
 	printf("rh = %f\n", recap.rh);

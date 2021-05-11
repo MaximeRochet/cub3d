@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:12:27 by mrochet           #+#    #+#             */
-/*   Updated: 2021/05/06 18:17:56 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 15:53:08 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,27 +121,27 @@ print_tab_plan(recap->plan_south, 4, "south");
 }
 */
 
-void	fill_tab_plan(char **map,int x, int y, t_recap *recap, char c) 
+void	fill_tab_plan(char **tab,int x, int y, t_recap *recap) 
 {
-	if(c == 'E')
+	if(tab[y][x+1] == '1')
 	{
-		recap->plan_est[x] = new_plan(1,0,0,x);
-		dprintf(1,"1\n");
-	}
-	if (c == 'W')
-	{
-		recap->plan_west[x] = new_plan(1,0,0,x);
+		recap->plan_est[x + 1] = new_plan(1,0,0,x + 1);
 		dprintf(1,"2\n");
 	}
-	if(c == 'S')
+	if(tab[y][x-1] == '1')
 	{
-		recap->plan_south[y] = new_plan(0,1,0,y);
+		recap->plan_west[x] = new_plan(1,0,0,x);
+		dprintf(1,"4\n");
+	}
+	if(tab[y + 1][x] == '1')
+	{
+		recap->plan_south[y+1] = new_plan(0,1,0,y+1);
 		dprintf(1,"3\n");
 	}
-	if (c == 'N')
+	if(tab[y - 1][x] == '1')
 	{
 		recap->plan_north[y] = new_plan(0,1,0,y);
-		dprintf(1,"4\n");
+		dprintf(1,"1\n");
 	}
 
 }
@@ -150,7 +150,7 @@ void	find_plan(char **tab, int x, int y, t_recap *recap, char c)
 {
 	int	i;
 	
-	printf("YA x=%d y=%d c=%c c_tab=%c \n", x, y, c, tab[y][x]);
+	printf("entrer find x=%d y=%d c=%c c_tab=%c \n", x, y, c, tab[y][x]);
 	i = 0;
 	while (tab[i])
 	{
@@ -159,21 +159,15 @@ void	find_plan(char **tab, int x, int y, t_recap *recap, char c)
 	}
 	if (ft_strchr("NSEW02", tab[y][x]))
 	{
-		if (y > 0 && y < i - 1 && x > 0 && x < ft_strlen(tab[y]) - 1)
+		if (y > 0 && y < i && x > 0 && x < ft_strlen(tab[y]))
 		{
-			printf("YA2 %d %d %c\n", x, y, c);
-			dprintf(1, "netwhat\n\n");
+			fill_tab_plan(tab, x, y, recap);
 			tab[y][x] = '*';
 			find_plan(tab, x - 1, y, recap, 'W');
 			find_plan(tab, x + 1, y, recap, 'E');
-			find_plan(tab, x, y - 1, recap, 'S');
-			find_plan(tab, x, y + 1, recap, 'N');
+			find_plan(tab, x, y - 1, recap, 'N');
+			find_plan(tab, x, y + 1, recap, 'S');
 		}
-	}
-	else if (tab[y][x] == '1')
-	{
-		dprintf(1,"fill\n\n");
-		fill_tab_plan(tab, x, y, recap,c);
 	}
 }
 
@@ -200,8 +194,8 @@ void plan_tab(t_recap *recap)
 	//analyse_tab_plan(tab, recap);
 	printf("%d %d \n%s\n", recap->map_info.user_x,recap->map_info.user_y, (*recap).map);
 	find_plan(tab, recap->map_info.user_x, recap->map_info.user_y, recap,'O');
-	print_tab_plan(recap->plan_est, 4, "est");
-	print_tab_plan(recap->plan_west, 4, "west");
-	print_tab_plan(recap->plan_north, 4,"north");
-	print_tab_plan(recap->plan_south, 4, "south");
+	print_tab_plan(recap->plan_est, lar, "est________________");
+	print_tab_plan(recap->plan_west, lar, "west______________");
+	print_tab_plan(recap->plan_north, lon,"north_____________");
+	print_tab_plan(recap->plan_south, lon, "south____________");
 }

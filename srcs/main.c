@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:23:36 by mrochet           #+#    #+#             */
-/*   Updated: 2021/05/04 16:47:21 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 16:56:30 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int main(int ac, char **av)
 	init_t_parse(stock);	
 	printf("parsing = %d\n", parsing(av[1], stock));
 	init_t_recap(recap, stock);
+	first_step_mlx(recap);
 //	print_recap(*recap);	
 //	print_struct(*stock);
 
 //	recap->rays = create_rays(recap);
-	plan_tab(recap);
+//	plan_tab(recap);
 	return(0);
 
 }

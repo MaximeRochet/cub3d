@@ -6,7 +6,7 @@
 /*   By: mrochet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:46:25 by mrochet           #+#    #+#             */
-/*   Updated: 2021/05/05 13:54:31 by mrochet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 18:48:01 by mrochet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,15 @@ typedef	struct	s_recap
 	char *map;
 	double rv;
 	double rh;
+
+	int sol;
+	int ciel;
+
 	void *mlx_ptr;
-	void *mlx_win;
+	void *win_ptr;
+	void *mlx_img;
+	int *data;
+
 	t_map	map_info;
 	t_plan **plan_north; 
 	t_plan **plan_south; 
@@ -62,7 +69,7 @@ void 	print_tab_plan(t_plan **plan, int lon, char *def);
 void	plan_tab(t_recap *recap);
 void	print_plan(t_plan *plan);
 void	print_vect(t_vect vect);
-void	first_step_mlx(t_parse *stock);
+void	first_step_mlx(t_recap *recap);
 void	init_t_recap(t_recap *recap, t_parse *stock);
 void	find_plan(char **tab, int x, int y, t_recap *recap, char c);
 void 	plan_tab(t_recap *recap);
